@@ -6,22 +6,20 @@ This project is a static Astro frontend for the Grayscale theme. It renders page
 
 Astro uses **file-based routing**:
 
-- `src/pages/index.astro`  -> `/grayscale/` (because your `base` is `/grayscale/`)
-- `src/pages/about.astro`  -> `/grayscale/about/`
-- `src/pages/projects.astro` -> `/grayscale/projects/`
-- `src/pages/contact.astro` -> `/grayscale/contact/`
+- `src/pages/index.astro`  -> `/`
+- `src/pages/about.astro`  -> `/about/`
+- `src/pages/projects.astro` -> `/projects/`
+- `src/pages/contact.astro` -> `/contact/`
 
-### Base path (`/grayscale/`)
+### Base path (`/`)
 
 Your `astro.config.mjs` sets:
 
-- `base: '/grayscale/'`
+- `base: '/'`
 
 This makes sure:
 - links (like navbar links) are generated with the correct prefix
 - static assets resolve correctly (CSS/JS/images)
-
-If you ever want the site at `http://localhost:4321/` (instead of `/grayscale/`), change `base` to `/` and restart the dev server.
 
 ## 2) Pages
 
@@ -71,7 +69,7 @@ From the repo root (`/Applications/XAMPP/xamppfiles/htdocs/grayscale`):
 npm run dev
 ```
 Open the URL Astro prints (currently it works at):
-- `http://localhost:4321/grayscale/`
+- `http://localhost:4321/`
 
 ### Production build
 ```bash
@@ -94,4 +92,3 @@ Now, the frontend is controlled by Astro:
 - routing comes from `src/pages/*.astro`
 - layout comes from `src/layouts/BaseLayout.astro`
 - URLs are controlled by `astro.config.mjs` `base`
-
