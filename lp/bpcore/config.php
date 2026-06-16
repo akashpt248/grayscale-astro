@@ -46,10 +46,14 @@ define("MAXFAILEDNOLOGIN", (7));
 /*======DBCONFIG LOCAL========
 ============================*/
 
-define("DBHOST", "localhost");
-define("DBUSER", "root");
-define("DBPASSWORD", "");
-define("DATABASE", "grayscale");
+// Allow overriding DB credentials via environment variables when hosting remotely.
+// Env names: DB_HOST, DB_USER, DB_PASSWORD, DB_NAME
+define("DBHOST", getenv('DB_HOST') ? getenv('DB_HOST') : "localhost");
+define("DBUSER", getenv('DB_USER') ? getenv('DB_USER') : "root");
+define("DBPASSWORD", getenv('DB_PASSWORD') ? getenv('DB_PASSWORD') : "");
+define("DATABASE", getenv('DB_NAME') ? getenv('DB_NAME') : "grayscale");
+// DB engine: 'mysql' (default) or 'pgsql' for PostgreSQL
+define("DB_ENGINE", getenv('DB_ENGINE') ? getenv('DB_ENGINE') : "mysql");
 define("CAN_REGISTER", "any");
 define("DEFAULT_ROLE", "member");
 define("SECURE", FALSE);

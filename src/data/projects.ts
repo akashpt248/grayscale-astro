@@ -17,9 +17,14 @@ export interface ParentProject {
   children: ChildProject[];
 }
 
-const PROJECTS_API_URL = 'http://127.0.0.1/grayscale/lp/astro-api/projects.php';
+const PROJECTS_API_URL = import.meta.env.PUBLIC_PROJECTS_API_URL;
 
 export async function fetchProjects(): Promise<ParentProject[]> {
+  if (!PROJECTS_API_URL) {
+    console.warn('fetchProjects: PUBLIC_PROJECTS_API_URL is not set');
+    return [];
+  }
+
   try {
     const response = await fetch(PROJECTS_API_URL);
     const result = await response.json();

@@ -1,0 +1,8 @@
+name = "grayscale-api"
+main = "src/index.ts"
+compatibility_date = "2026-05-03"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "grayscale"
+database_id = "36de199d-d61b-42e4-b75f-acb9b51e8ac9"
