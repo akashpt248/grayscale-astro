@@ -20,8 +20,12 @@ export interface ParentProject {
 const PROJECTS_API_URL = import.meta.env.PUBLIC_PROJECTS_API_URL;
 
 export async function fetchProjects(): Promise<ParentProject[]> {
-  if (!PROJECTS_API_URL) {
-    console.warn('fetchProjects: PUBLIC_PROJECTS_API_URL is not set');
+  if (
+    !PROJECTS_API_URL ||
+    PROJECTS_API_URL.includes('127.0.0.1') ||
+    PROJECTS_API_URL.includes('localhost')
+  ) {
+    console.warn('fetchProjects: PUBLIC_PROJECTS_API_URL is missing or points to a local address');
     return [];
   }
 

@@ -3,6 +3,8 @@
 ## Frontend
 - Deploy this Astro app to Vercel.
 - Set `PUBLIC_PROJECTS_API_URL` to your Worker URL, for example `https://grayscale-api.<your-subdomain>.workers.dev/projects`.
+- Make sure `PUBLIC_PROJECTS_API_URL` does **not** point to `localhost` or `127.0.0.1` in Vercel.
+- If you change the env var, trigger a fresh redeploy.
 
 ## Backend
 - Create a Cloudflare Worker.
